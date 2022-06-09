@@ -1,0 +1,16 @@
+{
+  "item.alchemy.silver_bar": "Silver Bar",
+  "item.alchemy.silver_ore": "Silver Ore",
+  "item.alchemy.silver_block": "Silver Block",
+  "item.alchemy.tin_lump": "Tin Lump",
+  "item.alchemy.tin_bar": "Tin Bar",
+  "item.alchemy.tin_ore": "Tin Ore",
+
+  "block.alchemy.silver_ore": "Silver Ore",
+  "block.alchemy.silver_block": "Silver Block",
+  "block.alchemy.tin_ore": "Tin Ore",
+
+  "block.alchemy.quarry": "Quarry",
+
+  "itemGroup.alchemy_tab": "Alchemy Tab"
+}

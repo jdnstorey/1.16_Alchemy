@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "alchemy:silver_bar"
+    }
+  },
+  "result": {
+    "item": "alchemy:silver_block",
+    "count": 1
+  }
+}

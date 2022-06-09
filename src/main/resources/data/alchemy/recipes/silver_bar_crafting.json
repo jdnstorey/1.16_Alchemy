@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alchemy:silver_block"
+    }
+  ],
+  "result": {
+    "item": "alchemy:silver_bar",
+    "count": 9
+  }
+}
