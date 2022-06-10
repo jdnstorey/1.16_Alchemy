@@ -59,9 +59,7 @@ public class QuarryBlock extends Block {
             INamedContainerProvider namedProvider = new SimpleNamedContainerProvider(provider, QuarryContainer.title);
             NetworkHooks.openGui((ServerPlayerEntity) player, namedProvider);
             player.awardStat(Stats.INTERACT_WITH_FURNACE);
-            return ActionResultType.SUCCESS;
-        } else {
-            return ActionResultType.SUCCESS;
         }
+        return ActionResultType.SUCCESS;
     }
 }

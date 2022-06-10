@@ -35,7 +35,8 @@ public class QuarryGUI extends ContainerScreen<QuarryContainer> {
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         super.renderBackground(matrixStack);
-        super.render(matrixStack, mouseX, mouseY, partialTicks);
+        //super.render(matrixStack, mouseX, mouseY, partialTicks);
+        this.render(matrixStack, mouseX, mouseY, partialTicks);
         this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 }

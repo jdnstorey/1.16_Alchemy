@@ -16,7 +16,9 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public class QuarryTileEntity extends MachineTileEntities {
+public class QuarryTileEntity extends TileEntity {
+
+    public final LazyOptional<IItemHandlerModifiable> INVENTORY = LazyOptional.of(this::createInventory);
 
     public QuarryTileEntity() {
         super(TileEntityTypesInit.QUARRY_TILE_ENTITY_TYPE.get());
@@ -26,10 +28,28 @@ public class QuarryTileEntity extends MachineTileEntities {
     @Override
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nonnull Direction side) {
         if(Direction.Plane.HORIZONTAL.test(side) && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
-            return getInventory().cast();
+            return INVENTORY.cast();
         } else {
             return super.getCapability(cap, side);
         }
+    }
+
+    public IItemHandlerModifiable getInventory() {
+        return INVENTORY.orElseThrow(() -> new IllegalStateException("Inventory not created properly"));
+    }
+
+    @Override
+    public CompoundNBT save(CompoundNBT compound) {
+        super.save(compound);
+        compound.put("inventory", ((ItemStackHandler) getInventory()).serializeNBT());
+        return compound;
+    }
+
+
+    public void load(BlockState blockstate, CompoundNBT compound) {
+        super.load(blockstate, compound);
+        ((ItemStackHandler) getInventory()).deserializeNBT((CompoundNBT) compound.get("inventory"));
+        this.setChanged();
     }
 
     public @NotNull IItemHandlerModifiable createInventory() {
@@ -39,7 +59,7 @@ public class QuarryTileEntity extends MachineTileEntities {
                 if (slot < 12) {
                     return stack.getItem() == ItemInit.SILVER_BLOCK.get();
                 } else {
-                    return true;
+                    return false;
                 }
             }
         };

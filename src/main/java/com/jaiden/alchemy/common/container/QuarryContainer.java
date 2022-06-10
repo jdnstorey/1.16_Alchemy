@@ -26,30 +26,30 @@ public class QuarryContainer extends Container {
         return new QuarryContainer(id, new InvWrapper(playerInventory), new ItemStackHandler(18), playerInventory.player, BlockPos.ZERO);
     }
     public static IContainerProvider getServerContainerProvider(QuarryTileEntity te, BlockPos activationPos){
-        return (id, playerInventory, serverPlayer) -> new QuarryContainer(id, new InvWrapper(playerInventory), te.getHandler(), playerInventory.player, activationPos);
+        return (id, playerInventory, serverPlayer) -> new QuarryContainer(id, new InvWrapper(playerInventory), te.getInventory(), playerInventory.player, activationPos);
     }
 
     private final IWorldPosCallable worldPosCallable;
 
-    public QuarryContainer(int id, IItemHandlerModifiable playerInventory, IItemHandlerModifiable storageInventory,
+    protected QuarryContainer(int id, IItemHandlerModifiable playerInventory, IItemHandlerModifiable storageInventory,
                               PlayerEntity player, BlockPos pos) {
         super(ContainerTypesInit.QUARRY_CONTAINER_TYPE.get(), id);
         worldPosCallable = IWorldPosCallable.create(player.level, pos);
 
         //player inventory
         for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 9; j++){
+            for(int j = 0; j < 2; j++){
                 this.addSlot(new SlotItemHandler(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
         //hotbar
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 2; i++){
             this.addSlot(new SlotItemHandler(playerInventory, i, 8 + i * 18, 142));
         }
 
         //storage inventory
         for(int i = 0; i < 2; i++){
-            for(int j = 0; j < 9; j++){
+            for(int j = 0; j < 2; j++){
                 this.addSlot(new SlotItemHandler(storageInventory, j + i * 9 + 9, 8 + j * 18, 23 + i * 18));
 
                 /* fuel slot
@@ -82,7 +82,7 @@ public class QuarryContainer extends Container {
         if(index >= 36){
             moveItemStackTo(this.getItems().get(index), 0, 35, false);
         } else {
-            moveItemStackTo(this.getItems().get(index), 36, 36 + 18, false);
+            moveItemStackTo(this.getItems().get(index), 36, 48, false);
         }
         return ItemStack.EMPTY;
     }
