@@ -13,7 +13,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class QuarryGUI extends ContainerScreen<QuarryContainer> {
-    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(Alchemy.MODID, "textures/gui/quarry_gui.png");
+    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(Alchemy.MODID, "textures/gui/tutorialgui.png");
+
     public QuarryGUI(QuarryContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
         this.imageWidth = 175;
@@ -25,7 +26,7 @@ public class QuarryGUI extends ContainerScreen<QuarryContainer> {
         if (this.minecraft == null) {
             return;
         }
-        RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f);
+        RenderSystem.color4f(1f, 1f, 1f, 1f);
         this.minecraft.getTextureManager().bind(GUI_TEXTURE);
         int startX = (this.width - this.imageWidth) / 2;
         int startY = (this.height - this.imageHeight) / 2;
@@ -35,8 +36,8 @@ public class QuarryGUI extends ContainerScreen<QuarryContainer> {
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         super.renderBackground(matrixStack);
-        //super.render(matrixStack, mouseX, mouseY, partialTicks);
-        this.render(matrixStack, mouseX, mouseY, partialTicks);
+        System.out.println("X: " + mouseX + " - Y: " + mouseY + " - pT: " + partialTicks);
+        super.render(matrixStack, mouseX, mouseY, partialTicks);
         this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 }

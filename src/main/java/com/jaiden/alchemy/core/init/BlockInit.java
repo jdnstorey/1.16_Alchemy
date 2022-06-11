@@ -26,7 +26,7 @@ public class BlockInit {
     public static final RegistryObject<Block> TIN_ORE = BLOCKS.register("tin_ore", () -> new Block(
             ORE_PROPERTIES.harvestTool(ToolType.PICKAXE).harvestLevel(1).sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> QUARRY = BLOCKS.register("quarry", () -> new QuarryBlock());
+    public static final RegistryObject<QuarryBlock> QUARRY = BLOCKS.register("quarry", QuarryBlock::new);
 }
 
 

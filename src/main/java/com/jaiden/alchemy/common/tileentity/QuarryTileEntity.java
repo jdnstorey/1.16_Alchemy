@@ -15,10 +15,11 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class QuarryTileEntity extends TileEntity {
 
-    public final LazyOptional<IItemHandlerModifiable> INVENTORY = LazyOptional.of(this::createInventory);
+    private final LazyOptional<IItemHandlerModifiable> inventory = LazyOptional.of(this::createInventory);
 
     public QuarryTileEntity() {
         super(TileEntityTypesInit.QUARRY_TILE_ENTITY_TYPE.get());
@@ -26,16 +27,16 @@ public class QuarryTileEntity extends TileEntity {
 
     @NotNull
     @Override
-    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nonnull Direction side) {
+    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if(Direction.Plane.HORIZONTAL.test(side) && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
-            return INVENTORY.cast();
+            return inventory.cast();
         } else {
             return super.getCapability(cap, side);
         }
     }
 
     public IItemHandlerModifiable getInventory() {
-        return INVENTORY.orElseThrow(() -> new IllegalStateException("Inventory not created properly"));
+        return inventory.orElseThrow(() -> new IllegalStateException("Inventory not created properly"));
     }
 
     @Override
@@ -45,18 +46,19 @@ public class QuarryTileEntity extends TileEntity {
         return compound;
     }
 
-
+    @Override
     public void load(BlockState blockstate, CompoundNBT compound) {
         super.load(blockstate, compound);
         ((ItemStackHandler) getInventory()).deserializeNBT((CompoundNBT) compound.get("inventory"));
         this.setChanged();
     }
 
-    public @NotNull IItemHandlerModifiable createInventory() {
-        return new ItemStackHandler(18){
+    @Nonnull
+    public IItemHandlerModifiable createInventory() {
+        return new ItemStackHandler(12){
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                if (slot < 12) {
+                if (slot < 8) {
                     return stack.getItem() == ItemInit.SILVER_BLOCK.get();
                 } else {
                     return false;

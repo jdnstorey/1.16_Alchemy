@@ -43,20 +43,19 @@ public class QuarryBlock extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new QuarryTileEntity();
+        return TileEntityTypesInit.QUARRY_TILE_ENTITY_TYPE.get().create();
     }
 
-    @Nonnull
     @Override
-    @SuppressWarnings("deprecation")
-    public ActionResultType use(@Nonnull BlockState blockState,@Nonnull World world,
-                                @Nonnull BlockPos blockPos,@Nonnull PlayerEntity player,
-                                @Nonnull Hand hand,@Nonnull BlockRayTraceResult blockRayTraceResult) {
-        TileEntity tileEntity = world.getBlockEntity(blockPos);
-        if(tileEntity instanceof QuarryTileEntity && player instanceof ServerPlayerEntity) {
-            QuarryTileEntity te = (QuarryTileEntity) tileEntity;
+    public ActionResultType use(BlockState blockState, World world,
+                                BlockPos blockPos, PlayerEntity player,
+                                Hand hand, BlockRayTraceResult hit) {
+        TileEntity tile = world.getBlockEntity(blockPos);
+        if(tile instanceof QuarryTileEntity && player instanceof ServerPlayerEntity) {
+            QuarryTileEntity te = (QuarryTileEntity) tile;
             IContainerProvider provider = QuarryContainer.getServerContainerProvider(te, blockPos);
             INamedContainerProvider namedProvider = new SimpleNamedContainerProvider(provider, QuarryContainer.title);
+            System.out.println("Player: " + player + " - Provider: " + provider + " - NamedProv: " + namedProvider);
             NetworkHooks.openGui((ServerPlayerEntity) player, namedProvider);
             player.awardStat(Stats.INTERACT_WITH_FURNACE);
         }
