@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "i",
+    "c"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "type": "minecraft:iron_ingot"
+    },
+    "c":
+    {
+      "type": "minecraft:coal"
+    }
+  },
+  "result":
+  {
+    "item": "alchemy:steel_bar",
+    "count": 1
+  }
+}

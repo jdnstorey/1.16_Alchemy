@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "sss",
+    "zzz",
+    "sss"
+  ],
+  "key":
+  {
+    "s":
+    {
+      "type": "alchemy:steel_bar"
+    },
+    "z":
+    {
+      "item": "alchemy:zinc_bar"
+    }
+  },
+  "result":
+  {
+    "item": "alchemy:empty_fuel_cell",
+    "count": 1
+  }
+}

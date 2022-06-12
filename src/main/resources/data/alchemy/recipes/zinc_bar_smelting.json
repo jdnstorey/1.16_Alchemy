@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "alchemy:zinc_ore"
+  },
+  "result": "alchemy:zinc_bar",
+  "experience": 0.6,
+  "cookingtime": 60
+
+}

@@ -1,16 +1,54 @@
 {
-  "item.alchemy.silver_bar": "Silver Bar",
   "item.alchemy.silver_ore": "Silver Ore",
-  "item.alchemy.silver_block": "Silver Block",
-  "item.alchemy.tin_lump": "Tin Lump",
-  "item.alchemy.tin_bar": "Tin Bar",
-  "item.alchemy.tin_ore": "Tin Ore",
-
   "block.alchemy.silver_ore": "Silver Ore",
-  "block.alchemy.silver_block": "Silver Block",
-  "block.alchemy.tin_ore": "Tin Ore",
+  "item.alchemy.silver_bar": "Silver Bar",
 
-  "block.alchemy.quarry": "Quarry",
+  "item.alchemy.tin_ore": "Tin Ore",
+  "block.alchemy.tin_ore": "Tin Ore",
+  "item.alchemy.tin_bar": "Tin Bar",
+
+  "item.alchemy.copper_ore": "Copper Ore",
+  "block.alchemy.copper_ore": "Copper Ore",
+  "item.alchemy.copper_bar": "Copper Bar",
+
+  "item.alchemy.zinc_ore": "Zinc Ore",
+  "block.alchemy.zinc_ore": "Zinc Ore",
+  "item.alchemy.zinc_bar": "Zinc Bar",
+
+  "item.alchemy.lead_ore": "Lead Ore",
+  "block.alchemy.lead_ore": "Lead Ore",
+  "item.alchemy.lead_bar": "Lead Bar",
+
+  "item.alchemy.nickel_ore": "Nickel Ore",
+  "block.alchemy.nickel_ore": "Nickel Ore",
+  "item.alchemy.nickel_bar": "Nickel Bar",
+
+  "item.alchemy.titanium_ore": "Titanium Ore",
+  "block.alchemy.titanium_ore": "Titanium Ore",
+  "item.alchemy.titanium_bar": "Titanium Bar",
+
+  "item.alchemy.aluminium_ore": "Aluminium Ore",
+  "block.alchemy.aluminium_ore": "Aluminium Ore",
+  "item.alchemy.aluminium_bar": "Aluminium Bar",
+
+  "item.alchemy.platinum_ore": "Platinum Ore",
+  "block.alchemy.platinum_ore": "Platinum Ore",
+  "item.alchemy.platinum_bar": "Platinum Bar",
+
+
+
+  "item.alchemy.bronze_bar": "Bronze Bar",
+  "item.alchemy.brass_bar": "Brass Bar",
+  "item.alchemy.steel_bar": "Steel Bar",
+
+
+  "item.alchemy.fuel_cell_empty": "Empty Fuel Cell",
+  "item.alchemy.fuel_cell_full": "Full Fuel Cell",
+
+
+  "block.alchemy.alchemy_table": "Alchemy Table",
+
+  "container.alchemy_table": "Alchemy Table",
 
   "itemGroup.alchemy_tab": "Alchemy Tab"
 }

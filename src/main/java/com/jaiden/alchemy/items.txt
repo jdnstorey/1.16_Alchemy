@@ -1,0 +1,47 @@
+PURE MATERIALS ->
+silver: ore + bar
+tin: ore + bar
+copper: ore + bar
+zinc: ore + bar
+lead: ore + bar
+nickel: ore + bar
+titanium: ore + bar
+aluminum: ore + bar
+platinum: ore + bar
+
+
+ALLOYS ->
+bronze: bar
+brass: bar
+steel: bar
+
+
+ITEMS ->
+Plated Steel
+
+
+ELECTRONICS ->
+
+
+FLUIDS ->
+
+
+CHEMICALS ->
+
+
+ENERGY ->
+Fuel (empty / full)
+
+
+INDUSTRIAL ->
+
+
+MACHINES ->
+Alchemy Table
+
+
+ROBOTS ->
+
+
+TOOLS ->
+
